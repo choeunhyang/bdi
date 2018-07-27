@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array Test</title>
+</head>
+<body>
+<script>
+	var arr = new Array();
+	arr.push('1');
+	arr.push('2');
+	/* alert(arr.length);
+	alert(arr[0]); */
+	
+	arr=['1','2','3']; // 배열 list비슷
+	arr.shift();// 첫번째 방을 삭제함, 3번방은 없애버리고 왼쪽으로 이동함
+	arr.unshift('1');
+	arr.pop(); // 마지막방을 삭제함
+	arr.push('3');
+	arr.splice(1,1);// 중간에꺼 사라짐 1번 방부터 1개 사라짐
+	for(var i=0;i<arr.length;i++){
+		document.write(arr[i]+'<br>');
+	}
+</script>
+</body>
+</html>
