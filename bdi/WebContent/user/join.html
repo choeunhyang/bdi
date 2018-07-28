@@ -5,99 +5,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
-		<table border = "1">
-			<tr>
-				<th><label for="name">이름</label></th>
-				<td><input type="text" id="name"></td>
-			</tr>
-			<tr>
-				<th><label for="birth">생년월일</label></th>
-				<td><input type="text" id="birth"></td>
-			</tr>
-			<tr>
-				<th><label for="email">Email</label></th>
-				<td><input type="text" id="email"></td>
-			</tr>
-			<tr>
-				<th><label for="ide">ID</label></th>
-				<td><input type="text" id="ide"></td>
-			</tr>
-			<tr>
-				<th><label for="pwd">Password</label></th>
-				<td><input type="password" id="pwd"></td>
-			</tr>
-			<tr>
-				<th><label for="trans">성별</label></th>
-				<td>
-					<select id="trans">
-						<option vlaue="">선택</option>
-						<option value="1">남</option>
-						<option value="2">여</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="button" onclick="checkValue()">회원가입</button>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<script>
-	function checkValue(){
-		/* alert(nameObj.value);
-		alert(nameObj.value.length); */
-		var nameObj = document.getElementById("name");
-		if(nameObj.value.trim().length<2){
-			alert("이름은 2글자 이상입니다.");
-			nameObj.value = "";
-			nameObj.focus();
-			return false;
-		}
-		
-		var birthObj = document.getElementById("birth");
-		if(birthObj.value.trim().length<6){
-			alert("생년월일은 6글자 이상 입니다.");
-			brithObj.value = "";
-			brithObj.focus();
-			return false;
-		}
-		
-		var emailObj = document.getElementById("email");
-		if(emailObj.value.trim().length<5){
-			alert("Email은 5글자 이상입니다.");
-			emailObj.value = "";
-			emailObj.focus();
-			return false;
-		}
-		
-		var idObj = document.getElementById("ide");
-		if(idObj.value.trim().length<6){
-			alert("아이디는 6글자 이상 입니다.");
-			idObj.value = "";
-			idObj.focus();
-			return false;
-		}
-		
-		var pwsObj = document.getElementById("pwd");
-		if(pwsObj.value.trim().length<6){
-			alert("패스워드는 6글자 이상 입니다.");
-			pwsObj.value = "";
-			pwsObj.focus();
-			return false;
-		}
-	}
-	/* function test(a){//너도 되고 안너도 되고 옵션 파라메터
-		alert("난 테스트 함수1!");
-	}
-	function test(){//너도 되고 안너도 되고 옵션 파라메터
-		alert("난 테스트 함수2!");
-	}
-	test();
-	test=1;
-	test();//error */
-	/* window.alert(1); // 함수 호출 원래는 window.alert */
-	</script>
+<form action="/user/join.jsp">
+	<table border="1">
+		<tr>	
+			<th colspan="2"> = 회원가입 = </th>
+		</tr>
+		<tr>
+			<th><label for="id">ID : </label></th>
+			<td><input type="text" name="id" id="id"></td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>
