@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</style>
 <link rel="stylesheet" href="/bs-3.3.7/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="/bs-3.3.7/dist/css/bootstrap-theme.css" />
 </head>
 <body>
 <div class="contatiner">
-	<table class="table table-hover" border="1">
+	<table class="table table-hover">
 		<tr>
 			<th>이름</th>
 			<th>나이</th>
