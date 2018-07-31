@@ -9,6 +9,28 @@
 <body>
 <%
 	String id = request.getParameter("id");
+	String pwd = request.getParameter("pwd");
+	String age = request.getParameter("age");
+	String email = request.getParameter("email");
+	String[] hobby = request.getParameterValues("hobby");
+	
+	String html = "ID : " + id;
+	html += "<br> 비밀번호 : " + pwd;
+	html += "<br> 나이 : " + age;
+	html += "<br> Email : " + email;
+	//html += "<br> 취미 : " + hobby;
+	html += "<br>취미 : ";
+	if(hobby==null){
+		html += "취미가 없어요.";
+	} 
+	if(hobby!=null){
+		for(int i = 0; i<hobby.length;i++){
+			html += hobby[i] + " ";
+		}	
+	}
+	out.println(html);
+	
+	/* String id = request.getParameter("id");
 	String age = request.getParameter("age");
 	String email = request.getParameter("email");
 	String pwd = request.getParameter("pwd");
@@ -30,7 +52,7 @@
 		return;
 	}
 	
-	out.println("ID : " + id + "<br>" + "비밀번호 : " + pwd + "<br>" +"나이 : " + age + "<br>" + "email : " + email);
+	out.println("ID : " + id + "<br>" + "비밀번호 : " + pwd + "<br>" +"나이 : " + age + "<br>" + "email : " + email); */
 %>
 </body>
 </html>
