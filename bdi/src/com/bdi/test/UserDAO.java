@@ -12,8 +12,9 @@ public class UserDAO {
 	private static String id = "root";
 	private static String pwd = "12345678";
 	
-	public static void main(String[] args) {
+	public StringBuilder getTableString(String[] types,String uiId) {
 		Connection con = null;
+		StringBuilder sb = new StringBuilder();
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, id, pwd);
@@ -21,22 +22,34 @@ public class UserDAO {
 			String sql = "select\r\n" + 
 					"uiNo, uiId,uiPwd, uiName, uiAge, depCode, uiEtc\r\n" + 
 					"from user_info";
+			if(uiId!=null && !uiId.equals("") && types !=null) {
+				sql += " where ";
+				for(String type:types) {
+					sql += type + " like '%" + uiId + "%' or ";
+				}
+				sql = sql.substring(0,sql.length()-3);
+			}
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){ // 하나씩 돌리면서 읽어야 되니까 while문을 돌린다.
-				System.out.println("<tr>");
-				System.out.println("<td>" + rs.getString("uiNo") + "</td>");
-				System.out.println("<td>" + rs.getString("uiId") + "</td>");
-				System.out.println("<td>" + rs.getString("uiPwd") + "</td>");
-				System.out.println("<td>" + rs.getString("uiName") + "</td>");
-				System.out.println("<td>" + rs.getString("uiAge") + "</td>");
-				System.out.println("<td>" + rs.getString("depCode") + "</td>");
-				System.out.println("<td>" + rs.getString("uiEtc") + "</td>");
-				System.out.println("</tr>");
+				sb.append("<tr>");
+				sb.append("<td>" + rs.getString("uiNo") + "</td>");
+				sb.append("<td>" + rs.getString("uiId") + "</td>");
+				sb.append("<td>" + rs.getString("uiPwd") + "</td>");
+				sb.append("<td>" + rs.getString("uiName") + "</td>");
+				sb.append("<td>" + rs.getString("uiAge") + "</td>");
+				sb.append("<td>" + rs.getString("depCode") + "</td>");
+				sb.append("<td>" + rs.getString("uiEtc") + "</td>");
+				sb.append("</tr>");
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}return sb;
 	}
+	/*public static void main(String[] args) {
+		UserDAO udao = new UserDAO();
+		StringBuilder sb = udao.getTableString();
+		System.out.println(sb.toString());
+	}*/
 }
